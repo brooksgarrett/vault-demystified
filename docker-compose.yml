@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  vault:
+    image: vault
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: supersecrettoken
+    ports:
+      - "8200:8200"
+    volumes:
+    - type: bind
+      source: .
+      target: /scripts
+    
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: supersecretpassword
